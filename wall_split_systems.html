@@ -85,15 +85,16 @@
             <div class="col-lg-3 col-md-4 mt-2">
                 <!-- Бренд/Каталог слева -->
                 <div class="card catalog-header-card">
-    <div class="catalog-header">
-        <h5 class="mb-0 fw-bold">
-            <i class="fas fa-list me-2"></i>Каталог товаров
+    <div class="catalog-header" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#catalogCollapse" aria-expanded="true" aria-controls="catalogCollapse">
+        <h5 class="mb-0 fw-bold d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-list me-2"></i>Каталог товаров</span>
+            <i class="fas fa-chevron-down"></i>
         </h5>
     </div>
 </div>
 
-                <!-- Каталог слева - ФИКСИРОВАННЫЙ ПРИ ПРОКРУТКЕ -->
-                <div class="catalog">
+                <!-- Каталог слева -->
+                <div class="catalog collapse show" id="catalogCollapse">
                     <div class="card catalog-sidebar border-0 shadow-sm">
                         <div class="card-body p-0">
                             <ul class="list-group list-group-flush mt-0">
@@ -111,7 +112,7 @@
                                             <div id="collapseOne" class="accordion-collapse collapse">
                                                 <div class="accordion-body bg-white py-2">
                                                     <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Инверторные кондиционеры</a>
-                                                    <a href="wall_split_systems.html" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Настенные сплит-системы</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Настенные сплит-системы</a>
                                                     <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Канальные кондиционеры</a>
                                                     <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Кассетные кондиционеры</a>
                                                     <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Напольно-потолочные кондиционеры</a>
@@ -186,6 +187,53 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Фильтры и сортировка -->
+                <div class="mt-3">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-3">
+                            <h6 class="fw-bold mb-3">Фильтры</h6>
+                            <div class="mb-3">
+                                <label for="filter-brand" class="form-label small fw-semibold">Бренд</label>
+                                <select class="form-select form-select-sm" id="filter-brand">
+                                    <option selected>Все бренды</option>
+                                    <option>Hisense</option>
+                                    <option>Daikin</option>
+                                    <option>Mitsubishi</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="filter-power" class="form-label small fw-semibold">Мощность</label>
+                                <select class="form-select form-select-sm" id="filter-power">
+                                    <option selected>Любая</option>
+                                    <option>До 2.5 кВт</option>
+                                    <option>2.5 - 3.5 кВт</option>
+                                    <option>3.5 - 5 кВт</option>
+                                    <option>Более 5 кВт</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="filter-price" class="form-label small fw-semibold">Цена</label>
+                                <select class="form-select form-select-sm" id="filter-price">
+                                    <option selected>Любая</option>
+                                    <option>До 30 000 ₽</option>
+                                    <option>30 000 - 50 000 ₽</option>
+                                    <option>50 000 - 80 000 ₽</option>
+                                    <option>Более 80 000 ₽</option>
+                                </select>
+                            </div>
+                            <div class="mb-0">
+                                <label for="filter-sort" class="form-label small fw-semibold">Сортировка</label>
+                                <select class="form-select form-select-sm" id="filter-sort">
+                                    <option selected>По популярности</option>
+                                    <option>Цена: по возрастанию</option>
+                                    <option>Цена: по убыванию</option>
+                                    <option>Новинки</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Правая колонка - основной контент -->
@@ -227,165 +275,264 @@
                     </div>
                 </nav>
 
-                <!-- Главный баннер -->
-                <section class="hero-banner mb-4">
-                     <div class="text-white rounded-3 p-5 text-center shadow-sm hero-banner-image">
-                        <h1 class="display-5 fw-bold mb-3">Кондиционеры с установкой от 1 дня</h1>
-                        <p class="lead mb-4 fs-5">Широкий выбор сплит-систем от ведущих производителей с гарантией до 5 лет</p>
-                        <button class="btn btn-light btn-lg fw-bold px-4" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
-                            <i class="fas fa-bolt me-2"></i>Подобрать кондиционер
-                        </button>
-                    </div>
+                <!-- Хлебные крошки -->
+                <nav aria-label="breadcrumb" class="mt-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html">Главная</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Настенные сплит-системы</li>
+                    </ol>
+                </nav>
+
+                <!-- Заголовок раздела -->
+                <section class="my-4">
+                    <h1 class="fw-bold mb-3">Настенные сплит-системы</h1>
+                    <p class="text-muted">Классические кондиционеры для квартир и офисов. Эффективное охлаждение и обогрев помещений площадью от 15 до 70 м².</p>
                 </section>
 
-               
-                <!-- Популярные товары -->
-                <section class="catalog mb-5">
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-header bg-white border-0 py-3">
-                            <h2 class="section-title mb-0 fw-bold text-primary">
-                                <i class="fas fa-crown me-2"></i>Популярные товары
-                            </h2>
-                        </div>
-                        <!-- Товары -->
-                        <div class="card-body">
-                            <div class="popular-carousel">
-                                <button class="popular-prev btn btn-sm btn-light shadow-sm" aria-label="Предыдущие товары"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                                <div class="popular-track-wrapper">
-                                    <div class="row g-3 popular-track">
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                    <div class="product-card bg-white rounded-3 border h-100 shadow-sm position-relative">
-                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top">
-                                            <img src="img/products/image001 -AS-10UW4RVETG01G.png" alt="AS-10UW4RVETG01G" class="img-fluid" style="max-height:120px;">
-                                        </a>
-                                        <div class="product-info p-2 d-flex flex-column h-100">
-                                            <h3 class="h5 product-title fw-bold">AS-10UW4RVETG01G</h3>
-
-                                            <ul class="product-features list-unstyled mb-3">
-                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Охлаждение: 2,6 кВт</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 25 м²</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Компрессор: Инверторный</li>
-
-                                            </ul>
-                                            <div class="product-price h4 text-primary mb-2 fw-bold">52 300 ₽</div>
-                                            <div class="product-actions mt-auto d-flex gap-2">
-                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" 
-                                                        data-id="1" data-name="AS-10UW4RVETG01G" data-price="52300">
-                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
-                                                </button>
-                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="1"><i class="far fa-bookmark"></i></button>
-                                            </div>
-                                        </div>
+                <!-- Карточки товаров -->
+                <section class="mb-5">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                        <!-- Товар 1 -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-image-container mb-3">
+                                        <img src="img/products/split1.jpg" class="product-image" alt="Hisense AS-07HR4SYDDEB3">
                                     </div>
-                                </div>
-                                
-                                <!-- Дополнительные товары по аналогии -->
-                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                    <div class="product-card bg-white rounded-3 border h-100 shadow-sm position-relative">
-                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top">
-                                            <img src="img/products/image002-AMS-09UW4RVETG00(B).png" alt="AMS-09UW4RVETG00(B)" class="img-fluid" style="max-height:120px;">
-                                        </a>
-                                        <div class="product-info p-2 d-flex flex-column h-100">
-                                            <h3 class="h5 product-title fw-bold">AMS-09UW4RVETG00(B)</h3>
-
-                                            <ul class="product-features list-unstyled mb-3">
-                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Охлаждение: 2,6 кВт</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 25 м²</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Компрессор: Инверторный</li>
-
-                                            </ul>
-                                            <div class="product-price h4 text-primary mb-2 fw-bold">26 600 ₽</div>
-                                            <div class="product-actions mt-auto d-flex gap-2">
-                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" 
-                                                        data-id="2" data-name="AMS-09UW4RVETG00(B)" data-price="26600">
-                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
-                                                </button>
-                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="2"><i class="far fa-bookmark"></i></button>
-                                            </div>
+                                    <h5 class="card-title product-title">Hisense AS-07HR4SYDDEB3</h5>
+                                    <ul class="list-unstyled small text-muted mb-3">
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Мощность: 2.0 кВт</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Площадь: до 20 м²</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Инверторный</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Wi-Fi управление</li>
+                                    </ul>
+                                    <div class="product-price-section mt-auto">
+                                        <div class="price-wrapper text-center mb-3">
+                                            <div class="product-price fw-bold fs-5 text-primary">29 990 ₽</div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                    <div class="product-card bg-white rounded-3 border h-100 shadow-sm position-relative">
-                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top">
-                                            <img src="img/products/image005-AS-36HR4SDKVTG.png" alt="AS-36HR4SDKVTG" class="img-fluid" style="max-height:120px;">
-                                        </a>
-                                        <div class="product-info p-2 d-flex flex-column h-100">
-                                            <h3 class="h5 product-title fw-bold">AS-36HR4SDKVTG</h3>
-
-                                            <ul class="product-features list-unstyled mb-3">
-                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Охлаждение: 9.4 кВт</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 80 м²</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Компрессор: Неинверторный</li>
-
-                                            </ul>
-                                            <div class="product-price h4 text-primary mb-2 fw-bold">135 300 ₽</div>
-                                            <div class="product-actions mt-auto d-flex gap-2">
-                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" 
-                                                        data-id="3" data-name="AS-36HR4SDKVTG" data-price="135300">
-                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
-                                                </button>
-                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="3"><i class="far fa-bookmark"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Еще товары для демонстрации прокрутки -->
-                                <div class="col-md-6 col-lg-4 col-xl-3">
-                                    <div class="product-card bg-white rounded-3 border h-100 shadow-sm position-relative">
-                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top">
-                                            <img src="img/products/image003-AE-33R4BFS .png" alt="AE-33R4BFS" class="img-fluid" style="max-height:120px;">
-                                        </a>
-                                        <div class="product-info p-3 d-flex flex-column h-100">
-                                            <h3 class="h5 product-title fw-bold">AE-33R4BFS</h3>
-                                            <ul class="product-features list-unstyled mb-3">
-                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 26 м²</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Прозводительность увлажнения: 380 мл/ч</li>
-                                                <li><i class="fas fa-check text-success me-2"></i> Расход воздуха: 500 м3/ч</li>
-                                            </ul>
-                                            <div class="product-price h4 text-primary mb-2 fw-bold">31 920 ₽</div>
-                                            <div class="product-actions mt-auto d-flex gap-2">
-                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" data-id="4" data-name="AE-33R4BFS" data-price="31920">
-                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
-                                                </button>
-                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="4"><i class="far fa-bookmark"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                 <div class="col-md-6 col-lg-4 col-xl-3">
-                                    <div class="product-card bg-white rounded-3 border h-100 shadow-sm position-relative">
-                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top">
-                                            <img src="img/products/image004-AEH-W4G1.png" alt="AEH-W4G1" class="img-fluid" style="max-height:120px;">
-                                        </a>
-                                        <div class="product-info p-3 d-flex flex-column h-100">
-                                            <h3 class="h5 product-title fw-bold">AEH-W4G1</h3>
-                                            <ul class="product-features list-unstyled mb-3">
-                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Wi-Fi модуль </li>
-                                            </ul>
-                                            <div class="product-price h4 text-primary mb-2 fw-bold">3 700 ₽</div>
-                                            <div class="product-actions mt-auto d-flex gap-2">
-                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" data-id="5" data-name="AEH-W4G1" data-price="3700">
-                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
-                                                </button>
-                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="5"><i class="far fa-bookmark"></i></button>
-                                            </div>
+                                        <div class="product-actions d-flex gap-2">
+                                            <button class="btn btn-primary flex-fill add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                            </button>
+                                            <button class="btn btn-outline-primary favorite-btn">
+                                                <i class="far fa-bookmark"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button class="popular-next btn btn-sm btn-light shadow-sm" aria-label="Следующие товары"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
+
+                        <!-- Товар 2 -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-image-container mb-3">
+                                        <img src="img/products/split2.jpg" class="product-image" alt="Hisense AS-09HR4SYDDEB3">
+                                    </div>
+                                    <h5 class="card-title product-title">Hisense AS-09HR4SYDDEB3</h5>
+                                    <ul class="list-unstyled small text-muted mb-3">
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Мощность: 2.5 кВт</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Площадь: до 25 м²</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Инверторный</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Wi-Fi управление</li>
+                                    </ul>
+                                    <div class="product-price-section mt-auto">
+                                        <div class="price-wrapper text-center mb-3">
+                                            <div class="product-price fw-bold fs-5 text-primary">34 990 ₽</div>
+                                        </div>
+                                        <div class="product-actions d-flex gap-2">
+                                            <button class="btn btn-primary flex-fill add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                            </button>
+                                            <button class="btn btn-outline-primary favorite-btn">
+                                                <i class="far fa-bookmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Товар 3 -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-image-container mb-3">
+                                        <img src="img/products/split3.jpg" class="product-image" alt="Hisense AS-12HR4SYDDEB3">
+                                    </div>
+                                    <h5 class="card-title product-title">Hisense AS-12HR4SYDDEB3</h5>
+                                    <ul class="list-unstyled small text-muted mb-3">
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Мощность: 3.5 кВт</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Площадь: до 35 м²</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Инверторный</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Wi-Fi управление</li>
+                                    </ul>
+                                    <div class="product-price-section mt-auto">
+                                        <div class="price-wrapper text-center mb-3">
+                                            <div class="product-price fw-bold fs-5 text-primary">39 990 ₽</div>
+                                        </div>
+                                        <div class="product-actions d-flex gap-2">
+                                            <button class="btn btn-primary flex-fill add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                            </button>
+                                            <button class="btn btn-outline-primary favorite-btn">
+                                                <i class="far fa-bookmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Товар 4 -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-image-container mb-3">
+                                        <img src="img/products/split4.jpg" class="product-image" alt="Daikin FTXM25R">
+                                    </div>
+                                    <h5 class="card-title product-title">Daikin FTXM25R</h5>
+                                    <ul class="list-unstyled small text-muted mb-3">
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Мощность: 2.5 кВт</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Площадь: до 25 м²</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Инверторный</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Японское качество</li>
+                                    </ul>
+                                    <div class="product-price-section mt-auto">
+                                        <div class="price-wrapper text-center mb-3">
+                                            <div class="product-price fw-bold fs-5 text-primary">52 990 ₽</div>
+                                        </div>
+                                        <div class="product-actions d-flex gap-2">
+                                            <button class="btn btn-primary flex-fill add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                            </button>
+                                            <button class="btn btn-outline-primary favorite-btn">
+                                                <i class="far fa-bookmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Товар 5 -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-image-container mb-3">
+                                        <img src="img/products/split5.jpg" class="product-image" alt="Mitsubishi Electric MSZ-HR25VF">
+                                    </div>
+                                    <h5 class="card-title product-title">Mitsubishi Electric MSZ-HR25VF</h5>
+                                    <ul class="list-unstyled small text-muted mb-3">
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Мощность: 2.5 кВт</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Площадь: до 25 м²</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Инверторный</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Премиум класс</li>
+                                    </ul>
+                                    <div class="product-price-section mt-auto">
+                                        <div class="price-wrapper text-center mb-3">
+                                            <div class="product-price fw-bold fs-5 text-primary">65 990 ₽</div>
+                                        </div>
+                                        <div class="product-actions d-flex gap-2">
+                                            <button class="btn btn-primary flex-fill add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                            </button>
+                                            <button class="btn btn-outline-primary favorite-btn">
+                                                <i class="far fa-bookmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Товар 6 -->
+                        <div class="col">
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-image-container mb-3">
+                                        <img src="img/products/split6.jpg" class="product-image" alt="Hisense AS-18HR4SYDDEB3">
+                                    </div>
+                                    <h5 class="card-title product-title">Hisense AS-18HR4SYDDEB3</h5>
+                                    <ul class="list-unstyled small text-muted mb-3">
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Мощность: 5.0 кВт</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Площадь: до 50 м²</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Инверторный</li>
+                                        <li><i class="fas fa-check-circle text-success me-1"></i>Wi-Fi управление</li>
+                                    </ul>
+                                    <div class="product-price-section mt-auto">
+                                        <div class="price-wrapper text-center mb-3">
+                                            <div class="product-price fw-bold fs-5 text-primary">47 990 ₽</div>
+                                        </div>
+                                        <div class="product-actions d-flex gap-2">
+                                            <button class="btn btn-primary flex-fill add-to-cart-btn">
+                                                <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                            </button>
+                                            <button class="btn btn-outline-primary favorite-btn">
+                                                <i class="far fa-bookmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
+
+                <!-- Преимущества настенных сплит-систем -->
+                <section class="mb-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 fw-bold mb-4">Преимущества настенных сплит-систем</h3>
+                            <div class="row g-4">
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-dollar-sign fa-3x text-primary mb-3"></i>
+                                        <h4 class="h6 fw-semibold">Доступная цена</h4>
+                                        <p class="small text-muted">Оптимальное соотношение цены и качества</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-tools fa-3x text-primary mb-3"></i>
+                                        <h4 class="h6 fw-semibold">Простой монтаж</h4>
+                                        <p class="small text-muted">Быстрая установка от 2 часов</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-volume-mute fa-3x text-primary mb-3"></i>
+                                        <h4 class="h6 fw-semibold">Тихая работа</h4>
+                                        <p class="small text-muted">Уровень шума от 19 дБ</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-leaf fa-3x text-primary mb-3"></i>
+                                        <h4 class="h6 fw-semibold">Энергоэффективность</h4>
+                                        <p class="small text-muted">Класс энергоэффективности A++</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Главный баннер -->
+                
+               <!-- <section class="my-4">
+                    <div class="p-4 bg-light border rounded-3 text-center">
+                        <h2 class="fw-bold">Ваши избранные товары</h2>
+                        <p class="mb-4">Здесь отображаются все товары, которые вы добавили в избранное. Вы можете просмотреть детали каждого товара, удалить их из списка или перейти к оформлению заказа.</p>
+                        <div id="favorites-list" class="row g-4">
+                             Товары будут динамически добавлены сюда с помощью JavaScript -->
+                       <!-- </div>
+                        <div id="no-favorites-message" class="alert alert-info mt-4" style="display: none;">
+                            У вас нет избранных товаров. Перейдите в каталог и добавьте понравившиеся товары в избранное!
+                        </div>
+                    </div>
+                </section>-->
             </div>
         </div>
     </div>
