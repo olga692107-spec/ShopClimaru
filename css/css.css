@@ -1,3 +1,50 @@
+/* Убираем голубой фон при наведении на .accordion-button */
+.accordion-button:hover,
+.accordion-button:focus {
+    background: #f8f9fa !important;
+    color: #0d6efd !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+/* Убрать стрелку у одиночных пунктов каталога */
+.accordion-button.accordion-button-no-arrow::after {
+    display: none !important;
+}
+/* Hover-эффект для ссылок и кнопок в каталоге */
+.catalog-hover-effect {
+    border-radius: 8px;
+    transition: none !important;
+}
+.catalog-hover-effect:hover,
+.catalog-hover-effect:focus {
+    color: #0d6efd !important;
+    background: transparent !important;
+    transition: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+/* Удаляем изменение паддинга при наведении — элемент должен масштабироваться на месте */
+.catalog-subitem-split:hover {
+    /* не меняем padding динамически, просто масштабируем */
+    transform: scale(1.02);
+    transform-origin: left center;
+    transition: transform 0.15s ease;
+}
+
+/* Отключаем анимацию Bootstrap для .accordion-button */
+.accordion-button {
+    transition: none !important;
+    box-shadow: none !important;
+}
+.accordion-button:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+.accordion-button:not(.collapsed) {
+    background: #f8f9fa !important;
+    color: #0d6efd !important;
+    transition: none !important;
+}
 /* Общие стили */
 html,body {
     height: 100%;
@@ -43,6 +90,11 @@ header {
     z-index: 1020;
      }
 
+/* CSS-переменная для высоты шапки — используем в main чтобы выровнять границу */
+header {
+    --header-height: 70px;
+}
+
 .navbar-brand {
     transition: transform 0.3s ease;
 }
@@ -52,53 +104,78 @@ header {
 }
 
 
-
-
 /* Основной контент */
 .main-content {
-    margin-top: 70px;
-    min-height: calc(100vh - 88px);
+    margin-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: column;
+    transition: padding-bottom 0.22s ease; /* плавный переход при появлении отступа */
+}
+
+/* Убираем серую линию (border-bottom) между центральной навигацией и баннером */
+.content-scrollable .navbar.border-bottom {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Когда все фильтры/секции каталога раскрыты — даём дополнительный отступ перед футером */
+.all-filters-open .main-content {
+    padding-bottom: 130px !important; /* уменьшено в 2 раза */
+}
+
+@media (max-width: 768px) {
+    .all-filters-open .main-content {
+        padding-bottom: 180px !important; /* уменьшено в 2 раза */
+    }
 }
 
 /* Стили для каталога - новый дизайн как у навигации */
 
+
 .catalog-header-card {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
-    border-radius: 8px !important;
+    border-radius: 12px !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
     border: 1px solid #dee2e6 !important;
     margin-bottom: 1rem !important;
-    transition: all 0.3s ease;
-    cursor: pointer
+    cursor: pointer;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 !important;
 }
 
-.catalog-header-card:hover {
-    transform: scale(1.02); /* Увеличение на 2% */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important; /* Усиленная тень */
-    border-color: #0d6efd !important; /* Синяя рамка при наведении */
-}
+
 
 .catalog-header {
     background: transparent !important;
     border: none !important;
     border-radius: 8px !important;
     padding: 1rem !important;
-    transition: all 0.3s ease;
+   
 
 }
 
-.catalog-header-card:hover .catalog-header {
-    transform: scale(1.01); /* Легкое увеличение контента */
-}
+
 
 .catalog-header h5 {
     color: #2c3e50 !important;
     font-weight: 600;
     margin: 0;
     text-align: center;
-     transition: color 0.3s ease;
+    font-size: 1.25rem;
+    width: 100%;
+}
+
+/* Стили для заголовков секций (например, "Популярные товары")
+   Сделать текст чёрным и размером как у заголовка каталога */
+.section-title {
+    color: #000 !important;
+    font-size: 1.25rem !important; /* совпадает с .catalog-header h5 */
+    font-weight: 600 !important;
 }
 
 .catalog-header-card:hover .catalog-header h5 {
@@ -107,14 +184,35 @@ header {
 
 .catalog-header .fa-list {
     color: #0d6efd !important;
-    transition: transform 0.3s ease;
+   
 }
 
 .catalog-header-card:hover .fa-list {
-    transform: scale(1.2); /* Увеличение иконки */
     color: #0a58ca !important; /* Более темный синий для иконки */
 }
 
+
+/* Стили для пунктов списка в боковом каталоге */
+.catalog .list-group-item.border-0 {
+    border: none !important; /* убрать рамку если есть */
+    padding: 0 !important; /* убрать лишние отступы внутри li */
+    background: transparent !important;
+}
+
+/* Тонкая разделительная линия между пунктами каталога */
+.catalog .list-group-item.border-0 + .list-group-item.border-0 {
+    border-top: 2px solid #dbeaf8 !important; /* более явная разделительная линия */
+}
+
+/* Убедимся что элементы аккордеона растягиваются по ширине и без радиусов */
+.catalog .accordion .accordion-item {
+    border-radius: 0 !important;
+}
+
+/* Уберём внутренние рамки у самой карточки-списка */
+.catalog .card.catalog-sidebar {
+    border-radius: 8px !important;
+}
 .catalog-static {
     position: sticky;
     top: 140px;
@@ -126,6 +224,254 @@ header {
     border: 2px solid #0d6efd;
     background: white;
 }
+
+/* ИСПРАВЛЕНИЕ ДЛЯ АККОРДЕОНА В КАТАЛОГЕ */
+
+/* Сброс отступов для аккордеона */
+.catalog-accordion {
+    background: transparent;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.catalog-accordion .accordion-item {
+    background: transparent;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.catalog-accordion-btn {
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 1.25rem 1.5rem !important;
+    background: #f8f9fa !important;
+    position: relative;
+    overflow: hidden;
+    margin: 0 !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    color: #2c3e50 !important;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+}
+
+
+/* Убедимся, что аккордеон не ломает поток */
+.list-group-item.p-0.m-0 {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block;
+}
+
+.catalog-accordion-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.catalog-accordion-btn:hover::before {
+    left: 100%;
+}
+
+.catalog-accordion-btn:hover {
+    background: #f8f9fa !important;
+    color: white !important;
+    color: #0d6efd !important;
+}
+
+.catalog-accordion-btn:hover .catalog-icon {
+    color: white !important;
+    /* transform: scale(1.2); УБРАНО */
+}
+
+
+/* Исправление для контента аккордеона */
+.catalog-accordion .accordion-collapse {
+    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.catalog-accordion .accordion-body {
+     padding-left: 0 !important;
+    padding-bottom: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Убедимся, что подкатегории не выпадают из потока */
+.catalog-subitem {
+    border-left: 3px solid transparent;
+    font-weight: 500;
+    color: #495057 !important;
+    position: relative;
+    margin: 0 !important;
+    padding: 0.75rem 1.5rem  !important;
+    display: block;
+    border-bottom: 1px solid #e6f0fb; /* чётче разделяем подэлементы */
+    
+}
+
+/* Специальный стиль для "Настенные сплит-системы" — как у кнопки аккордеона с точкой в начале */
+.catalog-subitem-split {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem !important; /* уменьшенный padding для компактности */
+    color: #2c3e50 !important;
+    font-weight: 600;
+    background: #f8f9fa !important;
+    text-decoration: none !important;
+    width: 100%;
+    border-left: 0 !important; /* убрать левую границу */
+    border-bottom: 1px solid #bcdcff !important; /* голубая граница между подэлементами */
+}
+.catalog-subitem-split::before {
+    content: '•';
+    display: inline-block;
+    margin-right: 0.75rem;
+    color: #6c757d;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.catalog-subitem-split:hover,
+.catalog-subitem-split:focus {
+    background: linear-gradient(90deg, #eaf6ff 0%, #d6efff 100%) !important; /* более яркий фон */
+    color: #0a58ca !important; /* более насыщенный синий */
+    text-decoration: none !important;
+    box-shadow: 0 8px 22px rgba(13,110,253,0.14);
+    transform: scale(1.03);
+    transform-origin: left center;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, color 0.12s ease;
+}
+
+.catalog-subitem:last-child {
+    border-bottom: none;
+}
+
+.catalog-subitem::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: #6c757d;
+    transition: all 0.18s ease;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* ВЫДЕЛЕНИЕ ПРИ НАВЕДЕНИИ СО СМЕЩЕНИЕМ */
+.catalog-subitem:hover {
+    background: linear-gradient(90deg, #f0f8ff 0%, #e6f4ff 100%) !important;
+    color: #0a58ca !important;
+    box-shadow: 0 6px 18px rgba(13,110,253,0.10);
+    transform: scale(1.02);
+    transform-origin: left center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.12s ease;
+}
+
+/* При наведении точка остаётся на месте, меняется только цвет */
+.catalog-subitem:hover::before {
+    color: #0d6efd;
+    transform: none; /* убираем смещение точки */
+}
+
+/* Исправление для обычных категорий - убедимся в одинаковой высоте */
+.catalog-category {
+    border: none !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.catalog-category-link {
+    color: #2c3e50 !important;
+    padding: 1.25rem 1.5rem !important;
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    display: flex !important;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Убедимся, что все элементы имеют одинаковую высоту */
+.catalog-category,
+.catalog-accordion-btn {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+@keyframes fanSlowSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Активное состояние с быстрым вращением */
+.catalog-accordion-btn:not(.collapsed) .fa-fan {
+    animation: fanFastSpin 1s linear infinite;
+}
+
+@keyframes fanFastSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .catalog-accordion-btn {
+        padding: 1rem 1.25rem !important;
+        font-size: 0.95rem;
+        min-height: 55px;
+    }
+    
+    .catalog-category-link {
+        padding: 1rem 1.25rem !important;
+        font-size: 0.95rem;
+        min-height: 55px;
+    }
+    
+    .catalog-subitem {
+        padding: 0.625rem 1.25rem 0.625rem 2.5rem !important;
+        font-size: 0.9rem;
+    }
+    
+    .catalog-subitem::before {
+        left: 1.5rem;
+    }
+}
+
+/* Убедимся, что нет лишних отступов */
+.list-group-flush .list-group-item {
+    border-radius: 0 !important;
+}
+
+/* Фикс для стрелки аккордеона */
+.catalog-accordion-btn::after {
+    margin-left: auto;
+}
+
 
 /* Убираем полосы прокрутки */
 .catalog-static::-webkit-scrollbar {
@@ -147,6 +493,9 @@ header {
         border-radius: 8px;
     }
 }
+
+
+
 
 /* Аккордеон каталога */
 .accordion-button {
@@ -184,12 +533,24 @@ header {
     font-weight: 500;
 }
 
-.accordion-body a:hover {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
-    border-left-color: #0d6efd;
-    padding-left: 1.5rem !important;
-    color: #0d6efd !important;
+.accordion-hover {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
+
+.accordion-body a:hover {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%) !important;
+        border-left-color: #0d6efd;
+        color: #0d6efd !important;
+        border-color: #2196f3;
+        box-shadow: 0 4px 12px rgba(33, 150, 243, 0.12);
+        transform: scale(1.02);
+        transform-origin: left center;
+        transition: transform 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}
+
+
+
 
 /* Обычные категории в каталоге */
 .list-group-item {
@@ -215,12 +576,14 @@ header {
 
 .list-group-item:hover a {
     color: #0d6efd !important;
-    transform: translateX(5px);
+    transform: scale(1.02);
+    transform-origin: left center;
+    transition: transform 0.15s ease;
 }
 
 /* Основной контент - убираем фиксированную высоту */
 .content-scrollable {
-    overflow-y: visible;
+     float: right;
 }
 
 /* Убираем полосы прокрутки у основного контента */
@@ -236,19 +599,35 @@ header {
 /* Стили для навигации */
 .navbar-nav {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 8px;
-    padding: 0.5rem;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border: 1px solid #dee2e6;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .nav-link {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     color: #2c3e50 !important;
     font-weight: 600;
     border-radius: 6px;
     margin: 0 2px;
+    font-size: 1.05rem;
+    padding: 0.5rem 1.25rem;
+}
+/* Анимация на все кнопки */
+button, .btn, .add-to-cart {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+button:hover, .btn:hover, .add-to-cart:hover {
+    transform: scale(1.06);
+    box-shadow: 0 4px 18px rgba(13,110,253,0.18);
+    z-index: 2;
 }
 
 .nav-link:hover {
@@ -406,8 +785,20 @@ footer a:hover {
     left: 0;
     width: 50px;
     height: 3px;
-    background-color: #0d6efd;
+   /* background-color: #0d6efd;*/
     border-radius: 2px;
+}
+
+/* Убираем белый фон и тень у карточки внутри секции популярных товаров */
+section.catalog .card {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Сделать фон заголовка карточки в секции популярных полностью прозрачным */
+section.catalog .card-header,
+section.catalog .card-header.bg-white {
+    background: transparent !important;
 }
 
 /* Бейджи и счетчики */

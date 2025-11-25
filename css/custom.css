@@ -1,0 +1,230 @@
+/* Custom layout tweaks: align price and actions, favorite button styling */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Fixed card height to ensure uniform rows */
+.product-card {
+  box-sizing: border-box;
+  min-height: 460px;
+}
+
+@media (max-width: 767.98px) {
+  /* On small screens allow cards to size naturally to avoid excessive height */
+  .product-card { min-height: 0; }
+}
+
+.product-card .product-image {
+  flex: 0 0 auto;
+}
+
+/* Ensure product images have consistent visible height */
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 140px; /* visible area for images on desktop */
+  padding: 0.75rem;
+}
+.product-image img {
+  max-height: 100% !important;
+  height: auto !important;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 991.98px) {
+  .product-image { height: 130px; }
+}
+@media (max-width: 767.98px) {
+  .product-image { height: 110px; padding: 0.5rem; }
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+/* Ensure price is above actions and actions stick to bottom */
+.product-features { order: 1; }
+.product-price { order: 2; }
+.product-actions { order: 3; margin-top: auto; }
+
+.product-price {
+  margin-top: 0.5rem;
+}
+
+/* Make price centered and reserve space so it appears consistently across cards */
+.product-price {
+  order: 2;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 0.8rem;
+  min-height: 1.4em;
+}
+
+/* Ensure actions stay at the bottom and the add-to-cart fills available width */
+.product-actions {
+  order: 3;
+  margin-top: auto;
+  align-items: center;
+}
+.product-actions .add-to-cart {
+  align-self: stretch;
+}
+
+.product-actions {
+  /* push actions to the bottom of the product-info */
+  margin-top: auto;
+  align-items: center;
+}
+
+.product-actions .add-to-cart {
+  height: 44px;
+}
+
+.favorite-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffffcc;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #d33;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.favorite-toggle i {
+  font-size: 16px;
+  color: #d33;
+}
+
+.favorite-toggle.favorited {
+  background: #ffecec;
+  border-color: #f4b3b3;
+}
+
+.favorite-toggle.favorited i {
+  color: #b71c1c;
+}
+
+/* Small helper to ensure equal height buttons in actions */
+.product-actions .favorite-inline {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  color: #d33;
+}
+
+/* Header favorites badge tweaks */
+.nav-item .favorites-wrapper { position: relative; display: inline-block; }
+.nav-item #favorites-count { font-size: 0.65rem; min-width: 1.4rem; height: 1.4rem; padding: 0 .35rem; }
+
+/* Header action: make favorites and cart equal width and badge style */
+.header-action { width: 72px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+.header-action i { font-size: 20px; }
+.header-action .badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  transform: none;
+  min-width: 1.9rem;
+  height: 1.9rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.header-action .small { margin-top: 2px; }
+
+/* Make cart badge slightly smaller than favorites */
+.cart-wrapper .badge {
+  min-width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.65rem;
+  top: 6px;
+  right: 6px;
+  padding: 0;
+}
+
+@media (max-width: 767.98px) {
+  .favorite-toggle { top: 8px; right: 8px; }
+}
+
+/* Small styles for cart quantity controls inside the cart sidebar */
+.cart-item-decrease, .cart-item-increase {
+  width: 40px;
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-item-qty {
+  min-width: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+/* Popular products carousel styles */
+.popular-carousel { position: relative; }
+.popular-track-wrapper { overflow: hidden; padding: 0 24px; }
+.popular-track { display: flex; flex-wrap: nowrap; gap: 1rem; }
+/* Desktop: show 3 cards */
+.popular-track > [class*="col-"] { flex: 0 0 33.3333%; max-width: 33.3333%; }
+
+/* Medium: show 2 cards */
+@media (max-width: 991.98px) {
+  .popular-track > [class*="col-"] { flex: 0 0 50%; max-width: 50%; }
+}
+/* Small: show 1 card */
+@media (max-width: 767.98px) {
+  .popular-track > [class*="col-"] { flex: 0 0 100%; max-width: 100%; }
+}
+
+.popular-prev, .popular-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-size: 20px;
+  color: #222;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.popular-prev { left: -52px; }
+.popular-next { right: -52px; }
+
+.popular-prev:hover, .popular-next:hover { transform: translateY(-50%) scale(1.03); box-shadow: 0 8px 22px rgba(0,0,0,0.12); }
+.popular-prev:focus, .popular-next:focus { outline: none; box-shadow: 0 0 0 4px rgba(13,110,253,0.08); }
+
+
