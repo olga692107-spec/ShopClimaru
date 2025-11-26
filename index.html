@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climaru - Интернет магазин климатического оборудования</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="shortcut icon" type="image/png" href="img/logo5.png"/>
+</head>
+<body>
+<!-- Шапка сайта -->
+<header class="fixed-top bg-white shadow-sm">
+    <div class="container py-2">
+        <div class="d-flex justify-content-between align-items-center">            
+            <!-- Логотип - центрирован по каталогу -->
+            <div class="d-flex align-items-center me-2 ms-4" style="min-height: 48px;">
+                <a class="navbar-brand d-flex align-items-center justify-content-center ms-4" href="index.html" aria-label="Climaru - переход на главную страницу">
+                    <img src="img/logo.png" alt="Climaru" width="48" height="48" class="me-2">
+                    <strong class="fw-bold fs-3 text-primary">Climaru</strong>
+                </a>
+            </div>
+
+            <!-- Поисковая строка -->
+             
+            <div class="flex-grow-1 ms-auto" style="max-width: 545px;">
+                <form class="d-flex" role="search">
+                    <div class="input-group input-group-sm">
+                        <input class="form-control border-primary" type="search" placeholder="Найти просто..." aria-label="Search">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Правая часть: избранное, корзина, контакты -->
+            <div class="d-flex align-items-center gap-3">
+                <!-- Избранное -->
+                <div class="nav-item">
+                    <a href="#" class="nav-link text-dark fw-semibold">
+                        <div class="text-center favorites-wrapper header-action">
+                            <i class="fas fa-bookmark fs-5"></i>
+                            <span id="favorites-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                            <div class="small">Избранное</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Корзина -->
+                <div class="nav-item position-relative me-3">
+                    <a href="cart.html" class="nav-link text-dark fw-semibold cart-icon">
+                        <div class="text-center cart-wrapper header-action">
+                            <i class="fas fa-shopping-cart fs-5"></i>
+                            <span class="cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                            <div class="small">Корзина</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Контакты -->
+                <div class="contact-info">
+                    <div class="d-flex align-items-center flex-column text-end">
+                        <div class="fw-bold">8 (800) 123-45-67</div>
+                        <small class="text-muted">Ежедневно: 9:00-19:00</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Объединенная навигация и основной контент -->
+<main class="main-content">
+    <div class="container">
+        <div class="row">
+            <!-- Левая колонка - объединенная навигация и каталог -->
+            <div class="col-lg-3 col-md-4 mt-2">
+                <!-- Бренд/Каталог слева -->
+                <div class="card catalog-header-card">
+    <div class="catalog-header">
+        <h5 class="mb-0 fw-bold">
+            <i class="fas fa-list me-2"></i>Каталог товаров
+        </h5>
+    </div>
+</div>
+
+                <!-- Каталог слева - ФИКСИРОВАННЫЙ ПРИ ПРОКРУТКЕ -->
+                <div class="catalog">
+                    <div class="card catalog-sidebar border-0 shadow-sm">
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush mt-0">
+                                <!-- Унифицированные категории каталога -->
+                                <li class="list-group-item border-0">
+                                    <div class="accordion" id="catalogAccordion">
+                                        <!-- Бытовые кондиционеры -->
+                                        <div class="accordion-item border-0">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed bg-light text-dark fw-semibold catalog-hover-effect" type="button" 
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                                    <i class="fas fa-snowflake me-2 text-primary"></i>Бытовые кондиционеры
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse">
+                                                <div class="accordion-body bg-white py-2">
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Инверторные кондиционеры</a>
+                                                    <a href="catalog_wall_split_systems.html" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Настенные сплит-системы</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Канальные кондиционеры</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Кассетные кондиционеры</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Напольно-потолочные кондиционеры</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Колонные кондиционеры</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Мульти-сплит системы -->
+                                        <div class="accordion-item border-0">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed bg-light text-dark fw-semibold" type="button" 
+                                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" class="accordion-button collapsed bg-light text-dark fw-semibold catalog-hover-effect">
+                                                    <i class="fas fa-layer-group me-2 text-primary"></i>Мульти-сплит системы
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse">
+                                                <div class="accordion-body bg-white py-2">
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">2 комнаты</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">3 комнаты</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">4 комнаты</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">5 комнат</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">до 8 комнат</a>                                                    
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Внутренние блоки</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Очистители воздуха 
+                                        <div class="accordion-item border-0">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed bg-light text-dark fw-semibold catalog-hover-effect accordion-button-no-arrow" type="button" style="cursor:pointer;" disabled>
+                                                    <i class="fas fa-wind me-2 text-primary"></i>Очистители воздуха
+                                                </button>
+                                            </h2>
+                                        </div>-->
+                                        <!-- Увлажнители воздуха -->
+                                        <div class="accordion-item border-0">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed bg-light text-dark fw-semibold catalog-hover-effect accordion-button-no-arrow" type="button" style="cursor:pointer;" disabled>
+                                                    <i class="fas fa-tint me-2 text-primary"></i>Увлажнители воздуха
+                                                </button>
+                                            </h2>
+                                        </div>
+                                        <!-- Вентиляция -->
+                                        <div class="accordion-item border-0">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed bg-light text-dark fw-semibold catalog-hover-effect" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                                    <i class="fas fa-fan me-2 text-primary"></i>Вентиляция
+                                                </button>
+                                            </h2>
+
+
+                                            <div id="collapseFive" class="accordion-collapse collapse">
+                                                <div class="accordion-body bg-white py-2">
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Вентиляторы</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Бытовые установки</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Приточные установки</a>
+                                                    <a href="#" class="d-block text-decoration-none text-dark py-1 ps-4 catalog-subitem-split">Приточно-вытяжные установки</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Расходные материалы и аксессуары -->
+                                        <div class="accordion-item border-0">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed bg-light text-dark fw-semibold catalog-hover-effect accordion-button-no-arrow" type="button" style="cursor:pointer;" disabled>
+                                                    <i class="fas fa-thermometer-half me-2 text-primary"></i>Расходные материалы и аксессуары для кондиционеров
+                                                </button>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка - основной контент -->
+            <div class="col-lg-9 col-md-8 content-scrollable">
+                <!-- Навигационные ссылки по центру -->
+                <nav class="navbar navbar-expand-lg navbar-light  border-bottom ">
+                    <div class="container-fluid px-0">
+                        <div class="collapse navbar-collapse" id="mainNavbar">
+                            <ul class="navbar-nav w-100 justify-content-between">
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link text-dark fw-semibold" href="promotions.html">
+                                        Акции
+                                    </a>
+                                </li>
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link text-dark fw-semibold" href="#">
+                                        Услуги
+                                    </a>
+                                </li>
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link text-dark fw-semibold" href="#">
+                                        Доставка и установка
+                                    </a>
+                                </li>
+                                <li class="nav-item flex-fill text-center">
+                                    <a class="nav-link text-dark fw-semibold" href="contact.html">
+                                        Контакты
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Кнопка для мобильного меню -->
+                        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#mainNavbar" aria-controls="mainNavbar" 
+                                aria-expanded="false" aria-label="Переключить навигацию">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- Главный баннер -->
+                <section class="hero-banner mb-4 ">
+                     <div class="text-white rounded-3 py-5 px-5 text-center shadow-sm hero-banner-image">
+                        <h1 class="display-5 fw-bold mb-1">Кондиционеры с установкой <br>от 1 дня</h1>
+                        <p class="lead mb-4 fs-5">Широкий выбор сплит-систем от ведущих производителей с гарантией до 5 лет</p>
+                        <button class="btn btn-light btn-lg fw-bold px-4" type="button" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            <i class="fas fa-bolt me-2"></i>Подобрать кондиционер
+                        </button>
+                    </div>
+                </section>
+
+               
+                <!-- Популярные товары -->
+                <section class="catalog mb-5">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-white border-0 py-3">
+                            <h2 class="section-title mb-0 fw-bold text-primary">
+                                <i class="fas fa-crown me-2"></i>Популярные товары
+                            </h2>
+                        </div>
+                        <!-- Товары -->
+                        <div class="card-body">
+                                <div class="popular-carousel">
+                                <button class="popular-prev btn btn-sm btn-light shadow-sm" aria-label="Предыдущие товары"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                                <div class="popular-track-wrapper">
+                                    <div class="row g-3 popular-track">
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="product-card bg-white rounded-3 border h-100 position-relative">
+                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top text-decoration-none">
+                                            <img src="img/products/image001 -AS-10UW4RVETG01G.png" alt="AS-10UW4RVETG01G" class="img-fluid" style="max-height:120px; pointer-events: none;">
+                                        </a>
+                                        <div class="product-info p-2 d-flex flex-column h-100">
+                                            <h3 class="h5 product-title fw-bold">AS-10UW4RVETG01G</h3>
+
+                                            <ul class="product-features list-unstyled mb-3">
+                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Охлаждение: 2,6 кВт</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 25 м²</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Компрессор: Инверторный</li>
+
+                                            </ul>
+                                            <div class="product-price h4 text-primary mb-2 fw-bold">52 300 ₽</div>
+                                            <div class="product-actions mt-auto d-flex gap-2">
+                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" 
+                                                        data-id="1" data-name="AS-10UW4RVETG01G" data-price="52300">
+                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                                </button>
+                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="1"><i class="far fa-bookmark"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Дополнительные товары по аналогии -->
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="product-card bg-white rounded-3 border h-100 position-relative">
+                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top text-decoration-none">
+                                            <img src="img/products/image002-AMS-09UW4RVETG00(B).png" alt="AMS-09UW4RVETG00(B)" class="img-fluid" style="max-height:120px; pointer-events: none;">
+                                        </a>
+                                        <div class="product-info p-2 d-flex flex-column h-100">
+                                            <h3 class="h5 product-title fw-bold">AMS-09UW4RVETG00(B)</h3>
+
+                                            <ul class="product-features list-unstyled mb-3">
+                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Охлаждение: 2,6 кВт</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 25 м²</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Компрессор: Инверторный</li>
+
+                                            </ul>
+                                            <div class="product-price h4 text-primary mb-2 fw-bold">26 600 ₽</div>
+                                            <div class="product-actions mt-auto d-flex gap-2">
+                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" 
+                                                        data-id="2" data-name="AMS-09UW4RVETG00(B)" data-price="26600">
+                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                                </button>
+                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="2"><i class="far fa-bookmark"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="product-card bg-white rounded-3 border h-100 position-relative">
+                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top text-decoration-none">
+                                            <img src="img/products/image005-AS-36HR4SDKVTG.png" alt="AS-36HR4SDKVTG" class="img-fluid" style="max-height:120px; pointer-events: none;">
+                                        </a>
+                                        <div class="product-info p-2 d-flex flex-column h-100">
+                                            <h3 class="h5 product-title fw-bold">AS-36HR4SDKVTG</h3>
+
+                                            <ul class="product-features list-unstyled mb-3">
+                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Охлаждение: 9.4 кВт</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 80 м²</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Компрессор: Неинверторный</li>
+
+                                            </ul>
+                                            <div class="product-price h4 text-primary mb-2 fw-bold">135 300 ₽</div>
+                                            <div class="product-actions mt-auto d-flex gap-2">
+                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" 
+                                                        data-id="3" data-name="AS-36HR4SDKVTG" data-price="135300">
+                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                                </button>
+                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="3"><i class="far fa-bookmark"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Еще товары для демонстрации прокрутки -->
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="product-card bg-white rounded-3 border h-100 position-relative">
+                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top text-decoration-none">
+                                            <img src="img/products/image003-AE-33R4BFS .png" alt="AE-33R4BFS" class="img-fluid" style="max-height:120px; pointer-events: none;">
+                                        </a>
+                                        <div class="product-info p-3 d-flex flex-column h-100">
+                                            <h3 class="h5 product-title fw-bold">AE-33R4BFS</h3>
+                                            <ul class="product-features list-unstyled mb-3">
+                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Площадь: до 26 м²</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Прозводительность увлажнения: 380 мл/ч</li>
+                                                <li><i class="fas fa-check text-success me-2"></i> Расход воздуха: 500 м3/ч</li>
+                                            </ul>
+                                            <div class="product-price h4 text-primary mb-2 fw-bold">31 920 ₽</div>
+                                            <div class="product-actions mt-auto d-flex gap-2">
+                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" data-id="4" data-name="AE-33R4BFS" data-price="31920">
+                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                                </button>
+                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="4"><i class="far fa-bookmark"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="product-card bg-white rounded-3 border h-100 shadow-sm position-relative">
+                                        <a href="product.html" class="product-image d-flex align-items-center justify-content-center bg-light py-4 rounded-top">
+                                            <img src="img/products/image004-AEH-W4G1.png" alt="AEH-W4G1" class="img-fluid" style="max-height:120px;">
+                                        </a>
+                                        <div class="product-info p-3 d-flex flex-column h-100">
+                                            <h3 class="h5 product-title fw-bold">AEH-W4G1</h3>
+                                            <ul class="product-features list-unstyled mb-3">
+                                                <li><i class="fas fa-check text-success me-2"></i> Бренд: Hisense</li>
+                                                <li><i class="fas fa-check text-success me-2"></i>Wi-Fi модуль </li>
+                                            </ul>
+                                            <div class="product-price h4 text-primary mb-2 fw-bold">3 700 ₽</div>
+                                            <div class="product-actions mt-auto d-flex gap-2">
+                                                <button class="add-to-cart btn btn-primary flex-grow-1 fw-bold" data-id="5" data-name="AEH-W4G1" data-price="3700">
+                                                    <i class="fas fa-shopping-cart me-2"></i>В корзину
+                                                </button>
+                                                <button class="favorite-inline favorite-toggle" aria-label="Добавить в избранное" data-id="5"><i class="far fa-bookmark"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="popular-next btn btn-sm btn-light shadow-sm" aria-label="Следующие товары"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="h5 mb-3">Climaru</h3>
+                    <p class="text-light mb-3">Интернет-магазин «Climaru» — ваш надежный партнер в создании идеального климата с 2015 года. Мы предлагаем комплексные климатические решения: от профессионального подбора оборудования до аккуратной доставки и качественного монтажа.</p>
+                    <!--<div class="social-links d-flex gap-3">
+                        <a href="#" class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white"><i class="fab fa-youtube"></i></a>
+                    </div>-->
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="h5 mb-3">Каталог</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Бытовые кондиционеры</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Инверторные кондиционеры</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Настенные сплит-системы</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Мульти-сплит сплит-системы</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="h5 mb-3">Контакты</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>8 (800) 123-45-67</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@climaru.ru</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>г. Москва, ул. Тверская, д. 1
+Бизнес-центр "Central"</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>Пн-Вс: 9:00-20:00</li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h3 class="h5 mb-3">Услуги</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Установка кондиционеров</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Обслуживание</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Заправка</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Проектирование</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright text-center pt-3 mt-3 border-top">
+                &copy; 2025 Climaru. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS
+      -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Input mask library -->
+        <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.8/dist/inputmask.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+        <script src="js/favorites.js"></script>
+        <!-- Contact / lead modal -->
+        <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="contactModalLabel">Подобрать кондиционер — форма</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <label for="cf-name" class="form-label">Ваше имя</label>
+                                <input type="text" class="form-control" id="cf-name" name="name" required>
+                                <div class="invalid-feedback">Пожалуйста, укажите имя.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cf-phone" class="form-label">Телефон</label>
+                                <input type="tel" class="form-control" id="cf-phone" name="phone" placeholder="+7 (900) 000-00-00" pattern="^\+?\d[\d\s\-()]{6,}$" required>
+                                <div class="invalid-feedback">Укажите корректный телефон.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cf-email" class="form-label">Email (необязательно)</label>
+                                <input type="email" class="form-control" id="cf-email" name="email">
+                                <div class="invalid-feedback">Укажите корректный email.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cf-msg" class="form-label">Комментарий / требования</label>
+                                <textarea class="form-control" id="cf-msg" name="message" rows="3" placeholder="Например: площадь, этаж, желаемая мощность"></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button id="cf-submit" type="submit" class="btn btn-primary">Отправить</button>
+                            </div>
+                        </form>
+                        <div id="cf-success" class="alert alert-success mt-3 d-none" role="alert">
+                            Спасибо! Ваша заявка принята, мы свяжемся с вами в ближайшее время.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
