@@ -99,8 +99,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffffffcc;
-  border: 1px solid rgba(0,0,0,0.08);
+  background: transparent;
+  border: none;
   color: #d33;
   cursor: pointer;
   z-index: 5;
@@ -112,8 +112,8 @@
 }
 
 .favorite-toggle.favorited {
-  background: #ffecec;
-  border-color: #f4b3b3;
+  background: transparent;
+  border: none;
 }
 
 .favorite-toggle.favorited i {

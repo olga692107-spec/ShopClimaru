@@ -92,7 +92,7 @@ header {
 
 /* CSS-переменная для высоты шапки — используем в main чтобы выровнять границу */
 header {
-    --header-height: 70px;
+    --header-height: 100px;
 }
 
 .navbar-brand {
@@ -134,7 +134,7 @@ header {
 
 
 .catalog-header-card {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    background: linear-gradient(100deg, #f8f9fa 0%, #e9ecef 50%) !important;
     border-radius: 12px !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
     border: 1px solid #dee2e6 !important;
@@ -206,13 +206,49 @@ header {
 
 /* Убедимся что элементы аккордеона растягиваются по ширине и без радиусов */
 .catalog .accordion .accordion-item {
-    border-radius: 0 !important;
+    border-radius: 8px !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.catalog .accordion .accordion-item:first-child {
+    border-radius: 8px !important;
+}
+
+.catalog .accordion .accordion-item:last-child {
+    border-radius: 8px !important;
+    margin-bottom: 0 !important;
 }
 
 /* Уберём внутренние рамки у самой карточки-списка */
 .catalog .card.catalog-sidebar {
-    border-radius: 8px !important;
+    border-radius: 12px !important;
+    background: transparent !important;
+    box-shadow: none !important;
 }
+
+.catalog {
+    background: transparent !important;
+    border-radius: 12px !important;
+}
+
+.catalog .card-body {
+    background: transparent !important;
+    padding: 0 !important;
+}
+
+.catalog .list-group {
+    background: transparent !important;
+}
+
+.catalog .list-group-item {
+    background: transparent !important;
+}
+
+.catalog .accordion-button {
+    background-color: #f8f9fa !important;
+    border-radius: 12px !important;
+}
+
 .catalog-static {
     position: sticky;
     top: 140px;
@@ -668,9 +704,10 @@ button:hover, .btn:hover, .add-to-cart:hover {
 .hero-banner-image {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
                 url('../img/banner2.jpg') center/100% 100% no-repeat;
+    position: relative;
 }
 
-/*.hero-banner-image::before {
+.hero-banner-image::before {
     content: '';
     position: absolute;
     top: 0;
@@ -679,7 +716,14 @@ button:hover, .btn:hover, .add-to-cart:hover {
     bottom: 0;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 0.5rem;
-}*/
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-banner-image > * {
+    position: relative;
+    z-index: 1;
+}
 
 /* Карточки особенностей */
 .feature-card {
@@ -701,19 +745,32 @@ button:hover, .btn:hover, .add-to-cart:hover {
 }
 
 /* Карточки товаров */
-.product-card {
+ .product-card {
     transition: all 0.3s ease;
     overflow: hidden;
-}
+} 
 
-.product-card:hover {
+ .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    box-shadow: none !important;
+} 
+
+.product-image-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    border-radius: 8px;
 }
 
 .product-image {
-    transition: all 0.3s ease;
-    min-height: 150px;
+   /* transition: all 0.3s ease;*/
+    width: 100%;
+    height: 50%;
+    object-fit: contain;
+    padding: 1px;
 }
 
 .product-card:hover .product-image {
@@ -947,4 +1004,90 @@ section.catalog .card-header.bg-white {
 
 .gradient-light {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Переопределение отступа для кнопок в карточках товаров */
+.product-actions.mt-auto {
+    margin-top: 10px !important;
+}
+
+/* Стили карточек товаров */ 
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 8px;
+}
+
+@media (min-width: 576px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.product-card {
+    height:320px; /* Фиксированная высота */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    background: white;
+    overflow: hidden;
+}
+
+.product-image {
+    flex-shrink: 0;
+    height: 100px;
+}
+
+.product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    min-height: 0;
+}
+
+.product-title {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.product-features {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    margin-bottom: 12px;
+}
+
+.product-features::-webkit-scrollbar {
+    width: 3px;
+}
+
+.product-features::-webkit-scrollbar-thumb {
+    background: #dee2e6;
+    border-radius: 2px;
+}
+
+.product-features li {
+    margin-bottom: 4px;
+    line-height: 1.2;
+    font-size: 25px;
+}
+
+.product-footer {
+    margin-top: auto;
 }
